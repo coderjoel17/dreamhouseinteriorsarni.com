@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Interior Display Module</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+    }
+
+    .bg-container {
+      background-image: url('back%2012.jpg');
+      background-size: cover;
+      background-position: center;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.7);
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+
+    .nav-bar {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(10px);
+      border-radius: 30px;
+      padding: 10px 30px;
+      z-index: 10;
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-bar a {
+      color: white;
+      text-decoration: none;
+      padding: 10px;
+      font-size: 18px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-bar a:hover {
+      color: tomato;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+    }
+
+    .nav-bar a.active {
+      background-color: green;
+      border-radius: 10px;
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+      padding: 80px 20px 40px;
+      text-align: center;
+    }
+
+    .image-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .image-grid img {
+      max-width: 300px;
+      width: 70%;
+      height: auto;
+      border: 3px solid #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #222;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .image-grid img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Modal with controlled size */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.95);
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .modal img {
+      max-width: 90%;
+      max-height: 80vh;
+      object-fit: contain;
+      border: 5px solid white;
+      border-radius: 10px;
+      box-shadow: 0 0 25px black;
+    }
+
+    .back-button {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background-color: #444;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      z-index: 10000;
+      transition: background 0.3s ease;
+    }
+
+    .back-button:hover {
+      background-color: tomato;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <div class="nav-bar">
+    <a href="home.html">Home</a>
+    <a href="gal.html">Gallery</a>
+    <a href="design.html">Designs</a>
+    <a class="active" href="about.html">About</a>
+  </div>
+
+  <!-- Background and Image Grid -->
+  <div class="bg-container">
+    <div class="overlay"></div>
+    <div class="content">
+      <br><br><br><br>
+      <div class="image-grid">
+        <img src="liv%201.jpg" alt="Interior 1">
+        <img src="liv%202.jpg" alt="Interior 2">
+        <img src="liv%203.jpg" alt="Interior 3">
+        <img src="liv%204.jpg" alt="Interior 4">
+        <img src="liv%205.jpg" alt="Interior 5">
+        <img src="liv%206.jpg" alt="Interior 6">
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Lightbox -->
+  <div id="imageModal" class="modal">
+    <button class="back-button" id="modalBack">Back</button>
+    <img id="modalImage" src="" alt="Full View">
+  </div>
+
+  <script>
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImage");
+    const modalBack = document.getElementById("modalBack");
+    const images = document.querySelectorAll(".image-grid img");
+
+    images.forEach((img) => {
+      img.addEventListener("click", () => {
+        modal.style.display = "flex";
+        modalImg.src = img.src;
+      });
+    });
+
+    modalBack.onclick = function () {
+      modal.style.display = "none";
+      modalImg.src = "";
+    };
+
+    window.onclick = function (event) {
+      if (event.target === modal) {
+        modal.style.display = "none";
+        modalImg.src = "";
+      }
+    };
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Interior Display Module - TV Unit</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+    }
+
+    .bg-container {
+      background-image: url('back%2012.jpg');
+      background-size: cover;
+      background-position: center;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.7);
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+
+    .nav-bar {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(10px);
+      border-radius: 30px;
+      padding: 10px 30px;
+      z-index: 10;
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-bar a {
+      color: white;
+      text-decoration: none;
+      padding: 10px;
+      font-size: 18px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-bar a:hover {
+      color: tomato;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+    }
+
+    .nav-bar a.active {
+      background-color: green;
+      border-radius: 10px;
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+      padding: 80px 20px 40px;
+      text-align: center;
+    }
+
+    .image-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .image-grid img {
+      max-width: 300px;
+      width: 70%;
+      height: auto;
+      border: 3px solid #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #222;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .image-grid img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.95);
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .modal img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border: 5px solid white;
+      border-radius: 10px;
+      box-shadow: 0 0 25px black;
+    }
+
+    .back-button {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background-color: #444;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      z-index: 10000;
+      transition: background 0.3s ease;
+    }
+
+    .back-button:hover {
+      background-color: tomato;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<div class="nav-bar">
+  <a href="home.html">Home</a>
+  <a href="gal.html">Gallery</a>
+  <a href="design.html">Designs</a>
+  <a class="active" href="about.html">About</a>
+</div>
+
+<!-- Background and Content -->
+<div class="bg-container">
+  <div class="overlay"></div>
+  <div class="content">
+    <br><br><br><br>
+
+    <div class="image-grid">
+      <img src="tv%201.jpg" alt="TV Unit 1" onclick="openModal(this.src)">
+      <img src="tv%202.jpg" alt="TV Unit 2" onclick="openModal(this.src)">
+      <img src="tv%203.jpg" alt="TV Unit 3" onclick="openModal(this.src)">
+      <img src="tv%204.jpg" alt="TV Unit 4" onclick="openModal(this.src)">
+      <img src="tv%205.jpg" alt="TV Unit 5" onclick="openModal(this.src)">
+      <img src="tv%206.jpg" alt="TV Unit 6" onclick="openModal(this.src)">
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div id="myModal" class="modal" onclick="closeModal()">
+  <button class="back-button">Back</button>
+  <img id="modalImage" src="" alt="Full Screen View">
+</div>
+
+<script>
+  function openModal(src) {
+    document.getElementById("modalImage").src = src;
+    document.getElementById("myModal").style.display = "flex";
+  }
+
+  function closeModal() {
+    document.getElementById("myModal").style.display = "none";
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Design Modules</title>
+  <link rel="stylesheet" href="fontawesome-free-6.2.1-web/css/all.css">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      height: 100%;
+      color: white;
+    }
+
+    /* Background + Overlay */
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-image: url('back 13.jpg');
+      background-size: cover;
+      background-position: center;
+      z-index: -2;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: -1;
+    }
+
+    /* Modern Transparent Navigation Bar */
+    .nav-bar {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(10px);
+      border-radius: 30px;
+      padding: 10px 30px;
+      z-index: 10;
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-bar a {
+      color: white;
+      text-decoration: none;
+      padding: 10px;
+      font-size: 18px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-bar a:hover {
+      color: tomato;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+    }
+
+    .nav-bar a.active {
+      background-color: green;
+      border-radius: 10px;
+    }
+
+    /* Page Content */
+    .container {
+      padding: 100px 30px 30px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 40px;
+      margin-bottom: 20px;
+      color: tomato;
+    }
+
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .grid-item {
+      width: 300px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+
+    .grid-item:hover {
+      transform: scale(1.05);
+    }
+
+    .grid-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .grid-item a {
+      display: block;
+      padding: 15px;
+      text-decoration: none;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .grid-item a:hover {
+      background-color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background and Overlay -->
+  <div class="background"></div>
+  <div class="overlay"></div>
+
+  <!-- Transparent Navigation Bar -->
+  <div class="nav-bar">
+    <a href="home.html">Home</a>
+    <a href="gal.html">Gallery</a>
+    <a href="design.html">Designs</a>
+    <a class="active" href="about.html">About</a>
+  </div>
+
+  <!-- Page Content -->
+  <div class="container">
+    <div class="grid">
+      <div class="grid-item">
+        <a href="kitchen.html">
+          <img src="kitchen.jpg">
+          Modular Kitchen
+        </a>
+      </div>
+
+      <div class="grid-item">
+        <a href="living.html">
+          <img src="living.jpg">
+          Living Room
+        </a>
+      </div>
+
+      <div class="grid-item">
+        <a href="bedroom.html">
+          <img src="bedroom.jpg">
+          Bedroom
+        </a>
+      </div>
+
+      <div class="grid-item">
+        <a href="crockery.html">
+          <img src="dining.jpg">
+          Crockery
+        </a>
+      </div>
+
+      <div class="grid-item">
+        <a href="pooja.html">
+          <img src="pooja.jpg">
+          Pooja
+        </a>
+      </div>
+
+      <div class="grid-item">
+        <a href="foyer.html">
+          <img src="foyer.jpg">
+          Foyer
+        </a>
+      </div>
+
+      <div class="grid-item">
+        <a href="wardrobe.html">
+          <img src="ward.jpg">
+          Wardrobes
+        </a>
+      </div>
+
+      <div class="grid-item">
+        <a href="tvunit.html">
+          <img src="tv.jpg">
+          TV Unit
+        </a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

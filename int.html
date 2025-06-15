@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Website - Single Page</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            background-image: url('back 3.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .sidebar {
+            width: 200px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding-top: 50px;
+            box-sizing: border-box;
+            backdrop-filter: blur(5px);
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 10px;
+            color: #fff;
+            text-decoration: none;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .sidebar a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .container {
+            margin-left: 200px;
+            padding: 20px;
+            padding-top: 60px;
+            height: calc(100vh - 80px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            box-sizing: border-box;
+        }
+
+        section {
+            width: 100%;
+            height: 100%;
+            display: none;
+            position: relative;
+        }
+
+        section.active {
+            display: block;
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+            color: #fff;
+            text-align: center;
+            width: 80%;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .content h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Specific Style for About Us Section */
+        #about {
+            background-color: #fff;
+            color: #000;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+        }
+
+       
+        #about .image-container img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            bottom: 0;
+            width: calc(100% - 200px);
+            left: 200px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <a href="#" onclick="showSection('home')">Home</a>
+        <a href="#" onclick="showSection('about')">About</a>
+        <a href="#" onclick="showSection('contact')">Contact</a>
+    </div>
+
+    <div class="container">
+        <section id="home" class="active">
+            <div class="content">
+                <h2>DREAM HOUSE INTERIOR</h2>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="image-container">
+                <img src="back 4.jpg" alt="About Us Image">
+            </div>
+            <div class="content">
+                <h2>About Us</h2>
+                <p>It all started from the dream to become an entrepreneur. Dream House Interiors was founded by Inbaraja, who has over 15 years of experience in this industry.</p>
+                <p>Very well experienced in every aspect of this field, offering a happy experience to homeowners by ensuring fair pricing and quality.</p>
+                <p>Your Dream Homes, We Deliver.</p>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="content">
+                <h2>Contact Us</h2>
+                <p>Email: info@example.com</p>
+                <p>Phone: 123-456-7890</p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Dream House Interior. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll("section");
+            sections.forEach(section => {
+                section.classList.remove("active");
+            });
+            document.getElementById(sectionId).classList.add("active");
+        }
+    </script>
+
+</body>
+
+<a href="admin@gmail.com?subject = feedback$body = Message">Send Email</a>
+</html>
+
+
+
+send code another module like create image link modular kitchen , living room, bedroom and dining
